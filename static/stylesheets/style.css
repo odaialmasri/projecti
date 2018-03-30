@@ -160,13 +160,14 @@ h2 {
 .odai .login {
     border: 3px solid #59C991;    
     margin: 65px 450px 450px 450px;/*ف ي ت ش*/
-
-    height: 500px;
+    height: 400px;
     box-shadow: 3px 3px 3px 3px;
-    
-
     border: solid 1px #CCC;
     background-color: #FFF;
+}
+
+.odai .login .name-of-project{
+    
 }
 .login {
     padding-top: 20px;
@@ -257,3 +258,6 @@ h1{
 
 
 /* End section our team */
+body{
+    background-color: gainsboro;
+}
