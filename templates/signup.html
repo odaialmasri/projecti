@@ -1,19 +1,9 @@
-<!Doctype html>
-<html>
-
-<head>
-	<link rel="stylesheet" href="../static/stylesheets/bootstrap.min.css">
-
-
-
-
-
 {% extends "layout.html" %}
-{%block body%}
- 
 
+
+{%block body%}
 <div class="container">
-    <form method="POST" action="/signup" class="form-horizontal" role="form">
+    <form method="post" action="/signup" class="form-horizontal" role="form">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -29,7 +19,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input name="name" type="text" name="name" class="form-control" id="name"
+                        <input name="name" type="text" class="form-control" id="name"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -50,7 +40,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input name="email" type="text" name="email" class="form-control" id="email"
+                        <input name="email" type="text" class="form-control" id="email"
                                placeholder="you@example.com" required autofocus>
                     </div>
                 </div>
@@ -71,7 +61,7 @@
                 <div class="form-group has-danger">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input name="password" type="password" name="password" class="form-control" id="password"
+                        <input name="password" type="password" class="form-control" id="password"
                                placeholder="Password" required>
                     </div>
                 </div>
@@ -103,5 +93,4 @@
         </div>
     </form>
 </div>
-
 {% endblock %}
