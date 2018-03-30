@@ -50,7 +50,7 @@ def login():
 		if check != 0:
 			Login= True
 			return redirect ('/') 
-		else:2
+		else:
 			Login= False
 			return render_template("login.html", login=Login)
 	else:
