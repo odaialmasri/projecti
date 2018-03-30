@@ -1,0 +1,259 @@
+
+.container {
+    width: 1170px;
+    margin: auto;
+}
+
+.clearfix {
+    clear: both;
+}
+.header .slider .intro {
+    padding-top: 200px;
+    height: 600px;
+    text-align: center;
+    color: #FFF;
+}
+
+.header .slider .intro h2 {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    font-size: 50px;
+    width: 600px;
+    border-top: 4px solid #FFF;
+    border-bottom: 4px solid #FFF;
+    padding: 5px 0;
+    color: #FFF;
+}
+
+.header .slider .intro button {
+    background: none;
+    margin-top: 30px;
+    font-size: 20px;
+    border: 2px solid #FFF;
+    font-weight: bold;
+    padding: 10px 30px;
+}
+
+.header .navbar {
+    background-color: #252F31;
+    color: #FFF;
+    overflow: hidden;
+}
+
+.header .navbar h2 span {
+    color: #36DB73;
+    text-transform: uppercase;
+    
+}
+
+.header .navbar ul {
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden;
+    float: right;
+}
+
+.header .navbar ul li {
+    float: left;
+    padding: 10px;
+}
+
+.header .navbar ul li a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.header .navbar ul li.active a,
+.header .navbar ul li a:hover {
+    color: #39B174;
+    cursor: pointer;
+
+}
+
+
+
+
+
+
+
+
+
+
+.my-skills {
+    background-image: url('../images/slider.jpg');
+    background-size: cover;
+    background-color: #EEE;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+}
+
+.my-skills .skills
+{
+    width: 50%;
+}
+
+.my-skills .skills h2 {
+    margin: 180px 10px 20px 40px;/*ف ي ت ش*/
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+
+}
+
+.my-skills .skills p {
+    margin: 0 0 10px 40px;
+}
+
+.my-skills .skills p:last-of-type {
+    margin-top: 25px;
+
+}
+
+.my-skills .skills button {
+    margin-top: 20px;
+    margin-left: 40px;
+    background: #252f31;
+    color: white;
+}
+
+
+
+
+
+
+
+
+/* start My Framework*/
+
+.my-button {
+    background: none;
+    border: 3px solid #59C991;
+    padding: 10px 30px;
+    color: #59C991;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fl-left {
+    float: left;
+}
+
+p {
+    line-height: 1.7;
+    color: #888;
+}
+
+h2 {
+    color: #777;
+}
+
+
+/*  End My Framework*/
+.back {
+    /*background-color: #CCC;*/
+    /*height: none; */
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.odai .login {
+    border: 3px solid #59C991;    
+    margin: 65px 450px 450px 450px;/*ف ي ت ش*/
+
+    height: 500px;
+    box-shadow: 3px 3px 3px 3px;
+    
+
+    border: solid 1px #CCC;
+    background-color: #FFF;
+}
+.login {
+    padding-top: 20px;
+    font-size: 15px;
+    font-style: italic;
+    text-align: center;
+    font-weight: bold;
+
+}
+.login h1{
+    margin-top: 0px;
+}
+.row .col-md-6 h2{
+    padding-top: 20px;
+}
+/* start projects */
+
+.portfolio {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.portfolio h2 {
+    color: #777;
+}
+
+.portfolio p {
+    margin-bottom: 30px;
+}
+
+.portfolio .our-work {
+    overflow: hidden;
+}
+
+.portfolio .our-work>div {
+    float: left;
+    width: 33.3333%;
+    margin-bottom: 10px;
+}
+
+.portfolio .our-work>div img {
+    width: 92%;
+    margin: 10px;
+    padding: 3px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    box-shadow: 10px 10px 12px #CCC;
+}
+
+
+/* End projects */
+/* start section our team */
+
+.img-circle{
+    border-radius: 50%;
+    height: 250px;
+    
+}
+section {
+    display: inline-block;
+}
+h1{
+    text-align: center;
+}
+
+
+
+.team .our-work {
+    overflow: hidden;
+}
+
+.team .our-work>div {
+    float: left;
+    width: 33.3333%;
+    margin-bottom: 10px;
+}
+
+.team .our-work>div img {
+    border-radius: 29%;
+    width: 92%;
+    margin: 10px;
+    padding: 3px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+    box-shadow: 10px 10px 12px #CCC;
+}
+
+
+/* End section our team */
