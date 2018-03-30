@@ -27,7 +27,7 @@
 
 .header .slider .intro button {
     background: none;
-    margin-top: 30px;
+    margin-top: 60px;
     font-size: 20px;
     border: 2px solid #FFF;
     font-weight: bold;
@@ -92,6 +92,8 @@
 .my-skills .skills
 {
     width: 50%;
+    height:450px;
+    background:rgba(18, 21, 18, 0.4);
 }
 
 .my-skills .skills h2 {
@@ -107,7 +109,8 @@
 }
 
 .my-skills .skills p:last-of-type {
-    margin-top: 25px;
+    margin-top: 40px;
+    color:white;
 
 }
 
@@ -124,12 +127,11 @@
 
 
 
-
 /* start My Framework*/
 
 .my-button {
     background: none;
-    border: 3px solid #59C991;
+    border: 3px solid #747B78;
     padding: 10px 30px;
     color: #59C991;
     font-weight: bold;
@@ -254,6 +256,14 @@ h1{
     border: 1px solid #CCC;
     box-shadow: 10px 10px 12px #CCC;
 }
+.row{
+    width:900;
+    margin-top:100px;
+}
 
+.btn-primary {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
 
 /* End section our team */
