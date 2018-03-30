@@ -31,7 +31,7 @@ def signup():
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
 			accounts.insert(dict(name=name,email=email,password=password))
-			return redirect('/#')
+			return redirect('/login')
 		else:
 			return redirect('/signup')
 	else:
