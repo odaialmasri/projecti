@@ -69,21 +69,11 @@
     cursor: pointer;
 
 }
-
-
-
-
-
-
-
-
-
-
 .my-skills {
     background-image: url('../images/slider.jpg');
     background-size: cover;
     background-color: #EEE;
-    height: 500px;
+    height: 600px;
     padding-top: 30px;
     padding-bottom: 50px;
     overflow-x: hidden;
@@ -117,13 +107,6 @@
     background: #252f31;
     color: white;
 }
-
-
-
-
-
-
-
 
 /* start My Framework*/
 
@@ -233,11 +216,13 @@ section {
 h1{
     text-align: center;
 }
+.team {
+    margin-top: 20px;
+}
 
 
-
-.team .our-work {
-    overflow: hidden;
+.team h2 {
+    text-align: center;
 }
 
 .team .our-work>div {
@@ -260,4 +245,7 @@ h1{
 /* End section our team */
 body{
     background-color: gainsboro;
+}
+.create-account{
+    margin-top: 20px;
 }

@@ -5,7 +5,7 @@ import dataset
 app = Flask(__name__)
 
 
-db=dataset.connect("sqlite:///mor")
+db=dataset.connect("sqlite:///projecti")
 
 accounts=db["accounts"]
 projects=db["projects"]
@@ -18,20 +18,19 @@ def home():
 	return render_template("index.html")
 
 
-@app.route("/signup",methods=["POST","GET"])
+@app.route("/signup",methods=["post","get"])
 def signup():
 	global Login
 	if(request.method=="POST"):
 		name=request.form["name"]
 		email=request.form["email"]
-		phonenumber=request.form["phonenumber"]
 		password=request.form["password"]
 		pconfirm=request.form["password-confirm"]
 		echeck=accounts.find(email=email)
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
 			accounts.insert(dict(name=name,email=email,password=password))
-			return redirect('/#')
+			return redirect('/login')
 		else:
 			return redirect('/signup')
 	else:
@@ -39,7 +38,7 @@ def signup():
 
 
 
-@app.route("/login",methods=["GET","POST"])
+@app.route("/login",methods=["post","get"])
 def login():
 	global Login
 
@@ -50,7 +49,7 @@ def login():
 		check=len(list(e))
 		if check != 0:
 			Login= True
-			return redirect ('/#') 
+			return redirect ('/') 
 		else:
 			Login= False
 			return render_template("login.html", login=Login)
