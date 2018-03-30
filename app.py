@@ -50,7 +50,7 @@ def login():
 		check=len(list(e))
 		if check != 0:
 			Login= True
-			return redirect ('/#') 
+			return redirect ('/view') 
 		else:
 			Login= False
 			return render_template("login.html", login=Login)
@@ -68,5 +68,9 @@ def signout():
 	return redirect('/')
 
 
+@app.route("/view")
+def projects():
+	return render_template("projects.html")
+
 if __name__ == "__main__":
-	app.run(port=5001)
+	app.run(port=5004)
