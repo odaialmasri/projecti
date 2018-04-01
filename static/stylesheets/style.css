@@ -69,21 +69,11 @@
     cursor: pointer;
 
 }
-
-
-
-
-
-
-
-
-
-
 .my-skills {
     background-image: url('../images/slider.jpg');
     background-size: cover;
     background-color: #EEE;
-    height: 500px;
+    height: 600px;
     padding-top: 30px;
     padding-bottom: 50px;
     overflow-x: hidden;
@@ -117,13 +107,6 @@
     background: #252f31;
     color: white;
 }
-
-
-
-
-
-
-
 
 /* start My Framework*/
 
@@ -160,13 +143,14 @@ h2 {
 .odai .login {
     border: 3px solid #59C991;    
     margin: 65px 450px 450px 450px;/*ف ي ت ش*/
-
-    height: 500px;
+    height: 400px;
     box-shadow: 3px 3px 3px 3px;
-    
-
     border: solid 1px #CCC;
     background-color: #FFF;
+}
+
+.odai .login .name-of-project{
+    
 }
 .login {
     padding-top: 20px;
@@ -232,11 +216,13 @@ section {
 h1{
     text-align: center;
 }
+.team {
+    margin-top: 20px;
+}
 
 
-
-.team .our-work {
-    overflow: hidden;
+.team h2 {
+    text-align: center;
 }
 
 .team .our-work>div {
@@ -257,3 +243,9 @@ h1{
 
 
 /* End section our team */
+body{
+    background-color: gainsboro;
+}
+.create-account{
+    margin-top: 20px;
+}
