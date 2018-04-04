@@ -77,10 +77,10 @@ def info():
 	return render_template("projects-info.html")
 	if(request.method == "POST"):
 		name = request.form["name"]
-		factory = request.form["factory"]
-		company = request.form["company"]
+		Nameofidea = request.form["Nameofidea"]
+		Email = request.form["Email"]
 		Describtion= request.form["Describtion"]
-		projects.insert(dict(name=name , factory= factory , company=company , Describtion=Describtion))
+		projects.insert(dict(name=name , Nameofidea= Nameofidea , Email=Email , Describtion=Describtion))
 		return render_template("projects.html", projects=projects)
 	else:
 		return render_template("projects-info.html")
