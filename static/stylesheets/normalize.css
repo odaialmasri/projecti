@@ -403,7 +403,7 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
+info, /* 1 */
 menu {
   display: block;
 }

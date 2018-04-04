@@ -49,7 +49,8 @@ def login():
 		check=len(list(e))
 		if check != 0:
 			Login= True
-			return redirect ('/') 
+			return redirect ('/view') 
+
 		else:
 			Login= False
 			return render_template("login.html", login=Login)
@@ -67,5 +68,29 @@ def signout():
 	return redirect('/')
 
 
+@app.route("/view")
+def projects():
+	return render_template("projects.html")
+
+@app.route("/view-projects-info")
+def info():
+	return render_template("projects-info.html")
+	if(request.method == "POST"):
+		name = request.form["name"]
+		factory = request.form["factory"]
+		company = request.form["company"]
+		Describtion= request.form["Describtion"]
+		projects.insert(dict(name=name , factory= factory , company=company , Describtion=Describtion))
+		return render_template("projects.html", projects=projects)
+	else:
+		return render_template("projects-info.html")
+
+	
+
+
+
 if __name__ == "__main__":
-	app.run(port=5050)
+
+	app.run()
+
+
