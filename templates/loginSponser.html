@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+
+
+{%block body%}
+<div class="back">
+	<div class="odai">
+		<div class="login">
+			<h1>Freelancer</h1>
+			<form method="post" action="/login">
+				<br>
+				<input name="email" type="email" class="form-control" placeholder="Email"><br>
+				<br>
+				<input name="password" type="password" class="form-control" placeholder="Password"><br>
+				<input type="submit" class="btn btn-primary" value="Log in" ><br></a>
+				<a href="/signup/sponser">Create a new account</a><br>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

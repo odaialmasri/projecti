@@ -10,6 +10,8 @@ db=dataset.connect("sqlite:///projecti")
 accounts=db["accounts"]
 projects=db["projects"]
 
+
+
 Login = False
 
 
@@ -18,8 +20,8 @@ def home():
 	return render_template("index.html")
 
 
-@app.route("/signup",methods=["post","get"])
-def signup():
+@app.route("/signup/<typ>",methods=["post","get"])
+def signup(typ):
 	global Login
 	if(request.method=="POST"):
 		name=request.form["name"]
@@ -29,10 +31,11 @@ def signup():
 		echeck=accounts.find(email=email)
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
-			accounts.insert(dict(name=name,email=email,password=password))
+			print typ
+			accounts.insert(dict(name=name,email=email,password=password,ty=typ))
 			return redirect('/login')
 		else:
-			return redirect('/signup')
+			return redirect('/signup'+typ)
 	else:
 		return render_template("signup.html", login=Login)
 
@@ -41,21 +44,25 @@ def signup():
 @app.route("/login",methods=["post","get"])
 def login():
 	global Login
-
 	if(request.method=="POST"):
 		email=request.form["email"]
 		password=request.form["password"]
 		e=accounts.find(email=email,password=password)
 		check=len(list(e))
+		cc=e['ty']
 		if check != 0:
-			Login= True
-			return redirect ('/') 
+			if cc == "sponser":
+				Login= True
+				return redirect ('ss')
+			elif cc == "client":
+				Login= True
+				return redirect ('hh')
 		else:
 			Login= False
-			return render_template("login.html", login=Login)
+			return render_template("login.html",login=Login)
 	else:
 		Login= False
-		return render_template("login.html", login=Login)
+		return render_template("login.html",login=Login)
 
 
 @app.route("/out",methods=["post","get"])
@@ -68,4 +75,4 @@ def signout():
 
 
 if __name__ == "__main__":
-	app.run(port=5002)
+	app.run(port=5000)
