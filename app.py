@@ -57,6 +57,8 @@ def login():
 			elif cc == "client":
 				Login= True
 				return redirect ('hh')
+			Login= True
+			return redirect ('/view') 
 		else:
 			Login= False
 			return render_template("login.html",login=Login)
@@ -74,5 +76,27 @@ def signout():
 	return redirect('/')
 
 
+@app.route("/view")
+def projects():
+	return render_template("projects.html")
+
+@app.route("/view-projects-info")
+def info():
+	return render_template("projects-info.html")
+	if(request.method == "POST"):
+		name = request.form["name"]
+		Nameofidea = request.form["Nameofidea"]
+		Email = request.form["Email"]
+		Describtion= request.form["Describtion"]
+		projects.insert(dict(name=name , Nameofidea= Nameofidea , Email=Email , Describtion=Describtion))
+		return render_template("projects.html", projects=projects)
+	else:
+		return render_template("projects-info.html")
+
+	
+
+
+
 if __name__ == "__main__":
 	app.run(port=5000)
+
