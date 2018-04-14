@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {%block body%}
 <body class="img">
+
 <div class="container">
 <h1> Welcome !</h1>
 <form action="/enterproject" method="post">
@@ -18,13 +19,13 @@
 
   <div class="form-group custom-hop">
       <label for="exampleInputPassword1">Describtion*</label>
-      <textarea name="Describtion" type="text" class="form-control" id="exampleInputPassword1" placeholder="type your Describtion"></textarea>
+      <textarea name="describtion" type="text" class="form-control" id="exampleInputPassword1" placeholder="type your Describtion"></textarea>
     </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Project photo*</label>
-    <input type="text"  name="project-photo" class="form-control"  placeholder="upload your project picture">
+    <input type="text"  name="projectPhoto" class="form-control"  placeholder="upload your project picture">
   </div>
-  <a href="#"><button type="submit" class="btn btn-primary">Add</button></a>
+  <button type="submit" class="btn btn-primary">Add</button></a>
 
 
 
