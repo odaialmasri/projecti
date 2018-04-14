@@ -258,3 +258,7 @@ textarea{
     font-size: 18px;
 }
 /*end project-info*/
+.imgproject{
+    background-image: url('../images/slider.jpg');
+
+}
