@@ -1,19 +1,25 @@
 {% extends "layout.html" %}
 {%block body%}
-<div class="projects">
-<div class="container">
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-block">
-        <h3 class="card-title">project 0</h3>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">More</a>
-      </div>
 
-    </div>
-  </div>
+{% for pro in project %}
+
+<div class="projects">
+	<div class="container">
+		<div class="row">
+  			<div class="col-sm-6">
+    			<div class="card">
+      				<div class="card-block">
+				        <h3 class="card-title">{{pro.ideaName}}</h3>
+				        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				        <a href="/view-projects-info" class="btn btn-primary">More</a>
+      				</div>
+
+    			</div>
+  			</div>
+		</div>
+	</div>
 </div>
-</div>
-</div>
+
+{% endfor %}
+
 {% endblock %}

@@ -3,7 +3,7 @@
 <body class="img">
 <div class="container">
 <h1> Welcome !</h1>
-<form action="/view-projects-info" method="post">
+<form action="/enterproject" method="post">
 	
   <div class="form-group">
     <label for="exampleInputEmail1">Name*</label>
@@ -11,17 +11,18 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Name of idea*</label>
-    <input type="text" name= "Nameofidea" class="form-control"  placeholder="Name of idea">
+    <input type="text" name= "ideaName" class="form-control"  placeholder="Name of idea">
    
     Email*
-    <input type="text" name="Email" class="form-control" placeholder="Email">
+    <input type="text" name="email" class="form-control" placeholder="Email">
   </div>
+
   <div class="form-group custom-hop">
       <label for="exampleInputPassword1">Describtion*</label>
-      <textarea name="Describtion" type="text" class="form-control" id="exampleInputPassword1" placeholder="type your Describtion"></textarea> 
+      <textarea name="describtion" type="text" class="form-control" id="exampleInputPassword1" placeholder="type your Describtion"></textarea> 
     </div>
 
-  <a href="#"><button type="submit" class="btn btn-primary">Add</button></a>
+  <button type="submit" class="btn btn-primary">Add</button>
 
 
 </form>
