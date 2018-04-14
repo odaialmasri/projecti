@@ -84,8 +84,10 @@ def info():
 		ideaName=request.form["ideaName"]
 		email=request.form["email"]
 		describtion=request.form["describtion"]
+		projectPhoto=request.form["projectPhoto"]
+
 		print (dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
-		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
+		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion,projectPhoto=projectPhoto))
 		return redirect("/view")
 	else:
 		return render_template("enterproject.html")
@@ -101,9 +103,11 @@ def projects():
 
 
 
-@app.route("/moreinfo")
-def moreinfo():
-	return render_template("projects-details.html",project=db["project"])
+@app.route("/moreinfo/<id>")
+def moreinfo(id):
+	mi=project.find_one(ideaName=id)
+	return render_template("projects-details.html",project=mi)
+
 
 	
 
