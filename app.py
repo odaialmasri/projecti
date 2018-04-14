@@ -17,7 +17,6 @@ Login = False
 def home():
 	return render_template("index.html")
 
-
 @app.route("/signup",methods=["post","get"])
 def signup():
 	global Login
