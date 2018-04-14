@@ -14,7 +14,6 @@ Login = False
 def home():
 	return render_template("index.html")
 
-
 @app.route("/signup/<path:type>",methods=["post","get"])
 def signup(type):
 	print(type , request.method , "request.method")
