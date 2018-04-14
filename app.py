@@ -1,64 +1,65 @@
 from flask import Flask,request,render_template, redirect
 import dataset
 
-
 app = Flask(__name__)
-
 
 db=dataset.connect("sqlite:///projecti")
 
-accounts=db["accounts"]
+account=db["account"]
 projects=db["projects"]
 
-
-
 Login = False
-
 
 @app.route("/")
 def home():
 	return render_template("index.html")
 
 
-@app.route("/signup/<typ>",methods=["post","get"])
-def signup(typ):
+@app.route("/signup/<path:type>",methods=["post","get"])
+def signup(type):
+	print(type , request.method , "request.method")
 	global Login
 	if(request.method=="POST"):
+		#print type , "signup type"
 		name=request.form["name"]
 		email=request.form["email"]
 		password=request.form["password"]
 		pconfirm=request.form["password-confirm"]
-		echeck=accounts.find(email=email)
+		echeck=account.find(email=email)
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
-			print typ
-			accounts.insert(dict(name=name,email=email,password=password,ty=typ))
+			account.insert(dict(name=name,email=email,password=password,type=type))
 			return redirect('/login')
 		else:
-			return redirect('/signup'+typ)
+			return redirect('/signup/'+type)
 	else:
-		return render_template("signup.html", login=Login)
+		return render_template("signup.html", login=Login, type=type)
 
 
 
 @app.route("/login",methods=["post","get"])
 def login():
 	global Login
+	print request.method
+
 	if(request.method=="POST"):
 		email=request.form["email"]
 		password=request.form["password"]
-		e=accounts.find(email=email,password=password)
+		e=account.find_one(email=email,password=password)
 		check=len(list(e))
-		cc=e['ty']
+		#for x in e:
+			#print x
+		
+		#print check , list(e) ,e['type'] 
 		if check != 0:
-			if cc == "sponser":
+			c=e['type']
+			print c
+			if c == "sponsor":
 				Login= True
-				return redirect ('ss')
-			elif cc == "client":
+				return redirect ('/ss')
+			elif c == "client":
 				Login= True
-				return redirect ('hh')
-			Login= True
-			return redirect ('/view') 
+				return redirect ('/view') 
 		else:
 			Login= False
 			return render_template("login.html",login=Login)
@@ -98,5 +99,5 @@ def info():
 
 
 if __name__ == "__main__":
-	app.run(port=5000)
+	app.run(port=5002)
 
