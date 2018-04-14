@@ -6,7 +6,7 @@ app = Flask(__name__)
 db=dataset.connect("sqlite:///projecti")
 
 account=db["account"]
-projects=db["projects"]
+project=db["project"]
 
 Login = False
 
@@ -55,10 +55,10 @@ def login():
 			print c
 			if c == "sponsor":
 				Login= True
-				return redirect ('/ss')
+				return redirect ('/view')
 			elif c == "client":
 				Login= True
-				return redirect ('/view') 
+				return redirect ('/enterproject') 
 		else:
 			Login= False
 			return render_template("login.html",login=Login)
@@ -76,22 +76,34 @@ def signout():
 	return redirect('/')
 
 
+
+@app.route("/enterproject",methods=["post","get"])
+def info():
+	if(request.method == "POST"):
+		name=request.form["name"]
+		ideaName=request.form["ideaName"]
+		email=request.form["email"]
+		describtion=request.form["describtion"]
+		print (dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
+		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
+		return redirect("/view")
+	else:
+		return render_template("enterproject.html")
+
+
+
+
+	
+
 @app.route("/view")
 def projects():
-	return render_template("projects.html")
+	return render_template ("projects.html",project=db["project"])
 
-@app.route("/view-projects-info")
-def info():
-	return render_template("projects-info.html")
-	if(request.method == "POST"):
-		name = request.form["name"]
-		Nameofidea = request.form["Nameofidea"]
-		Email = request.form["Email"]
-		Describtion= request.form["Describtion"]
-		projects.insert(dict(name=name , Nameofidea= Nameofidea , Email=Email , Describtion=Describtion))
-		return render_template("projects.html", projects=projects)
-	else:
-		return render_template("projects-info.html")
+
+
+@app.route("/moreinfo")
+def moreinfo():
+	return render_template("projects-details.html",project=db["project"])
 
 	
 
