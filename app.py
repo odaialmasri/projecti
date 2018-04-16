@@ -16,10 +16,8 @@ def home():
 
 @app.route("/signup/<path:type>",methods=["post","get"])
 def signup(type):
-	print(type , request.method , "request.method")
 	global Login
 	if(request.method=="POST"):
-		#print type , "signup type"
 		name=request.form["name"]
 		email=request.form["email"]
 		password=request.form["password"]
@@ -30,7 +28,8 @@ def signup(type):
 			account.insert(dict(name=name,email=email,password=password,type=type))
 			return redirect('/login')
 		else:
-			return redirect('/signup/'+type)
+			#return redirect('/signup/'+type)
+			return render_template("signup.html",type=type,emailCheck=echeck2,pass1=password,pass2=pconfirm)
 	else:
 		return render_template("signup.html", login=Login, type=type)
 
@@ -39,20 +38,16 @@ def signup(type):
 @app.route("/login",methods=["post","get"])
 def login():
 	global Login
-	print request.method
-
+	
 	if(request.method=="POST"):
 		email=request.form["email"]
 		password=request.form["password"]
 		e=account.find_one(email=email,password=password)
 		check=len(list(e))
-		#for x in e:
-			#print x
-		
-		#print check , list(e) ,e['type'] 
+		print check
 		if check != 0:
 			c=e['type']
-			print c
+			#print c
 			if c == "sponsor":
 				Login= True
 				return redirect ('/view')
@@ -64,15 +59,13 @@ def login():
 			return render_template("login.html",login=Login)
 	else:
 		Login= False
-		return render_template("login.html",login=Login)
+		return render_template("login.html",login=Login,type=type)
 
 
 @app.route("/out",methods=["post","get"])
 def signout():
 	global Login
-	global Ema
 	Login=False
-	Ema=""
 	return redirect('/')
 
 
@@ -94,9 +87,6 @@ def info():
 
 
 
-
-	
-
 @app.route("/view")
 def projects():
 	return render_template ("projects.html",project=db["project"])
@@ -107,9 +97,6 @@ def projects():
 def moreinfo(id):
 	mi=project.find_one(ideaName=id)
 	return render_template("projects-details.html",project=mi)
-
-
-	
 
 
 
