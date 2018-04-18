@@ -266,5 +266,8 @@ textarea{
     overflow-x: hidden
     padding-top:0px;
 }
-}
 
+.project-dl{
+    padding-top: 100px;
+    padding-left: 530px;
+}
