@@ -121,9 +121,9 @@
 
 .my-button {
     background: none;
-    border: 3px solid #59C991;
+    border: 3px solid #39B174;
     padding: 10px 30px;
-    color: #59C991;
+    color: #39B174;
     font-weight: bold;
     cursor: pointer;
 }
@@ -152,7 +152,7 @@ h2 {
     margin-top: 0px;
 }
 .odai .login {
-    border: 3px solid #59C991;    
+    border: 3px solid #39B174;    
     margin: 65px 450px 450px 450px;/*ف ي ت ش*/
     height: 400px;
     box-shadow: 10px 10px 12px #CCC;
@@ -280,6 +280,7 @@ textarea{
     padding-top: 100px;
     padding-left: 530px;
 }
+<<<<<<< HEAD
 .colorB {
     color: #39B174;
     text-align: center;
@@ -287,3 +288,9 @@ textarea{
 .skills .fl-left{
     margin-top: 300px;
 }
+=======
+
+
+.skills.fl-left {
+    margin-top: 300px;}
+>>>>>>> d9ebe33ab59c76879cf581fa3b1951ae4fab5864
