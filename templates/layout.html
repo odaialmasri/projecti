@@ -2,6 +2,10 @@
 <html>
 
 <head>
+
+
+	{% block head %} {% endblock %}
+
     <link rel="stylesheet" type="text/css" href="../static/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="../static/stylesheets/normalize.css">
     <link rel="stylesheet" href="../static/stylesheets/style.css">    
@@ -13,16 +17,10 @@
     <div class="header">
         <div class="navbar">
             <div class="container">
-                <h2 class="fl-left">Odai.Inc</h2>
-                    <ul>
-                        <li class="active"><a href="#">Home </a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Skills</a></li>
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">protfolio</a></li>
-                        <li><a href="#">Contact Me</a></li>
-                    </ul>
+                <h2 class="fl-left">Projecty</h2>
+                <ul>
+                    <li><a href="/login">Login</a></li>
+                </ul>
 
             </div>
         </div>          

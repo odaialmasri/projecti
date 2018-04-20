@@ -1,9 +1,7 @@
 {% extends "layout.html" %}
-
-
 {%block body%}
 <div class="container">
-    <form method="post" action="/signup" class="form-horizontal" role="form">
+    <form method="post" action="/signup/{{type}}" class="form-horizontal" role="form">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -20,7 +18,7 @@
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                         <input name="name" type="text" class="form-control" id="name"
-                               placeholder="John Doe" required autofocus>
+                               placeholder="Your name" required autofocus>
                     </div>
                 </div>
             </div>
@@ -45,13 +43,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put e-mail validation error messages here -->
-                        </span>
+            {% if emailCheck == 1%}
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                 This email is already existed
+                            </span>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -80,15 +80,24 @@
                             <i class="fa fa-repeat"></i>
                         </div>
                         <input name="password-confirm" type="password" class="form-control"
-                               id="password-confirm" placeholder=" Password" required>
+                               id="password-confirm" placeholder="Confirm password" required>
                     </div>
                 </div>
             </div>
+            {% if pass1 != pass2 %}
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                 Wrong password confirmation
+                            </span>
+                    </div>
+                </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <a href="/login"><button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button></a>
+                <button type="submit" class="btn btn-success"><i class="fa fa-user-plus"></i> Register</button>
             </div>
         </div>
     </form>

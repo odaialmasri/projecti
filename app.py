@@ -1,76 +1,105 @@
 from flask import Flask,request,render_template, redirect
 import dataset
 
-
 app = Flask(__name__)
-
 
 db=dataset.connect("sqlite:///projecti")
 
-accounts=db["accounts"]
-projects=db["projects"]
+account=db["account"]
+project=db["project"]
+
 
 Login = False
-
 
 @app.route("/")
 def home():
 	return render_template("index.html")
 
-
-@app.route("/signup",methods=["post","get"])
-def signup():
+@app.route("/signup/<path:type>",methods=["post","get"])
+def signup(type):
 	global Login
 	if(request.method=="POST"):
 		name=request.form["name"]
 		email=request.form["email"]
 		password=request.form["password"]
 		pconfirm=request.form["password-confirm"]
-		echeck=accounts.find(email=email)
+		echeck=account.find(email=email)
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
-			accounts.insert(dict(name=name,email=email,password=password))
+			account.insert(dict(name=name,email=email,password=password,type=type))
 			return redirect('/login')
 		else:
-			return redirect('/signup')
+			#return redirect('/signup/'+type)
+			return render_template("signup.html",type=type,emailCheck=echeck2,pass1=password,pass2=pconfirm)
 	else:
-		return render_template("signup.html", login=Login)
+		return render_template("signup.html", login=Login, type=type)
 
 
 
 @app.route("/login",methods=["post","get"])
 def login():
 	global Login
-
+	
 	if(request.method=="POST"):
 		email=request.form["email"]
 		password=request.form["password"]
-		e=accounts.find(email=email,password=password)
-		check=len(list(e))
-		if check != 0:
-			Login= True
-			return redirect ('/view') 
+		e=account.find_one(email=email,password=password)
+		if e!= None:
+			c=e['type']
+			if c == "sponsor":
+				Login= True
+				return redirect ('/view')
+			elif c == "client":
+				Login= True
+				return redirect ('/enterproject') 
 		else:
 			Login= False
-			return render_template("login.html", login=Login)
+			return render_template("login.html",login=Login,type=type,check=e)
 	else:
 		Login= False
-		return render_template("login.html", login=Login)
+		return render_template("login.html",login=Login,type=type)
 
 
 @app.route("/out",methods=["post","get"])
 def signout():
 	global Login
-	global Ema
 	Login=False
-	Ema=""
 	return redirect('/')
+
+
+
+@app.route("/enterproject",methods=["post","get"])
+def info():
+	if(request.method == "POST"):
+		name=request.form["name"]
+		ideaName=request.form["ideaName"]
+		email=request.form["email"]
+		describtion=request.form["describtion"]
+		projectPhoto=request.form["projectPhoto"]
+		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion,projectPhoto=projectPhoto))
+		return redirect("/view")
+	else:
+		return render_template("enterproject.html")
+
 
 
 @app.route("/view")
 def projects():
-	return render_template("projects.html")
+	return render_template ("projects.html",project=db["project"])
+
+
+
+@app.route("/moreinfo/<id>")
+def moreinfo(id):
+	mi=project.find_one(ideaName=id)
+	return render_template("projects-details.html",project=mi)
+
+
 
 if __name__ == "__main__":
+<<<<<<< HEAD
 	app.run(port=5003)
+=======
+	app.run(port=5002)
+>>>>>>> aeb8f05568bf917e56a6b6066c222c22d3048bee
 
