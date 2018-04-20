@@ -43,13 +43,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="form-control-feedback">
-                        <span class="text-danger align-middle">
-                            <!-- Put e-mail validation error messages here -->
-                        </span>
+            {% if emailCheck == 1%}
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                 This email is already existed
+                            </span>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
@@ -82,6 +84,15 @@
                     </div>
                 </div>
             </div>
+            {% if pass1 != pass2 %}
+                <div class="col-md-3">
+                    <div class="form-control-feedback">
+                            <span class="text-danger align-middle">
+                                 Wrong password confirmation
+                            </span>
+                    </div>
+                </div>
+            {% endif %}
         </div>
         <div class="row">
             <div class="col-md-3"></div>

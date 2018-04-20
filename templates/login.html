@@ -10,8 +10,20 @@
 				<input name="email" type="email" class="form-control" placeholder="Email"><br>
 				<br>
 				<input name="password" type="password" class="form-control" placeholder="Password"><br>
+				{% if check == None %}
+	                <div class="span">
+	                    <div class="form-control-feedback">
+	                            <span class="text-danger align-middle">
+	                                 wrong email or password
+	                            </span>
+	                            <br>
+	                            <br>
+	                    </div>
+	                </div>
+            	{% endif %}
 
-				<a href="/signup">Create a new account</a><br>
+				<a href="/signup/{{type}}">Create a new account</a><br>
+				
 				<input type="submit" class="btn btn-primary" value="Log in" ><br></a>
 				</div>
 			</form>
