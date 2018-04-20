@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{%block body%}
+
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{project.projectPhoto}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{project.ideaName}}</h5>
+    <p class="card-text">{{project.describtion}}</p>
+    <p class="card-text">{{project.email}}</p>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+
