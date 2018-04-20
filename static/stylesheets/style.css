@@ -138,8 +138,10 @@ p {
 }
 
 h2 {
-    color: #777;
-}
+    color:#30442b; 
+    padding-top:20px;}
+
+
 
 
 /*  End My Framework*/
@@ -235,6 +237,10 @@ h1{
     box-shadow: 10px 10px 12px #CCC;
 }
 
+
+.team{background-color: #96a875;}
+
+.our-work{margin-top:50px;}
 
 /* End section our team */
 body{
