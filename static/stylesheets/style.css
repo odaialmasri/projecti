@@ -232,9 +232,7 @@ h1{
     width: 92%;
     margin: 10px;
     padding: 3px;
-    background-color: #FFF;
-    border: 1px solid #CCC;
-    box-shadow: 10px 10px 12px #CCC;
+
 }
 
 
@@ -280,17 +278,20 @@ textarea{
     padding-top: 100px;
     padding-left: 530px;
 }
-<<<<<<< HEAD
 .colorB {
     color: #39B174;
     text-align: center;
 }
-.skills .fl-left{
-    margin-top: 300px;
-}
-=======
-
 
 .skills.fl-left {
     margin-top: 300px;}
->>>>>>> d9ebe33ab59c76879cf581fa3b1951ae4fab5864
+
+.imgproject{
+    background-image: url("../images/project-management.jpg");
+    background-size: cover;
+    background-color: #EEE;
+    height: 600px;
+    padding-bottom: 50px;
+    overflow-x: hidden
+    padding-top:0px;
+}
