@@ -97,9 +97,7 @@ def moreinfo(id):
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
-	app.run(port=5003)
-=======
-	app.run(port=5002)
->>>>>>> aeb8f05568bf917e56a6b6066c222c22d3048bee
+
+	app.run(port=5008)
+
 
