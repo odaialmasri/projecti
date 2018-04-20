@@ -1,9 +1,13 @@
-
 .container {
     width: 1170px;
     margin: auto;
 }
-
+@media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem;
+    text-align: right;
+  }
+}
 .clearfix {
     clear: both;
 }
@@ -27,7 +31,7 @@
 
 .header .slider .intro button {
     background: none;
-    margin-top: 60px;
+    margin-top: 30px;
     font-size: 20px;
     border: 2px solid #FFF;
     font-weight: bold;
@@ -38,6 +42,7 @@
     background-color: #252F31;
     color: #FFF;
     overflow: hidden;
+    padding-bottom: 0px;
 }
 
 .header .navbar h2 span {
@@ -59,31 +64,25 @@
 }
 
 .header .navbar ul li a {
-    color: #FFF;
+    font-size:20px; 
+    color: #39B174;
     text-decoration: none;
 }
 
+/*
 .header .navbar ul li.active a,
 .header .navbar ul li a:hover {
     color: #39B174;
     cursor: pointer;
-
 }
-
-
-
-
-
-
-
-
+*/
 
 
 .my-skills {
-    background-image: url('../images/slider.jpg');
+    background-image: url('../images/slider1.jpg');
     background-size: cover;
     background-color: #EEE;
-    height: 500px;
+    height: 620px;
     padding-top: 30px;
     padding-bottom: 50px;
     overflow-x: hidden;
@@ -92,8 +91,6 @@
 .my-skills .skills
 {
     width: 50%;
-    height:450px;
-    background:rgba(18, 21, 18, 0.4);
 }
 
 .my-skills .skills h2 {
@@ -109,8 +106,7 @@
 }
 
 .my-skills .skills p:last-of-type {
-    margin-top: 40px;
-    color:white;
+    margin-top: 25px;
 
 }
 
@@ -121,17 +117,11 @@
     color: white;
 }
 
-
-
-
-
-
-
 /* start My Framework*/
 
 .my-button {
     background: none;
-    border: 3px solid #747B78;
+    border: 3px solid #59C991;
     padding: 10px 30px;
     color: #59C991;
     font-weight: bold;
@@ -162,14 +152,13 @@ h2 {
 .odai .login {
     border: 3px solid #59C991;    
     margin: 65px 450px 450px 450px;/*ف ي ت ش*/
-
-    height: 500px;
-    box-shadow: 3px 3px 3px 3px;
-    
-
+    height: 400px;
+    box-shadow: 10px 10px 12px #CCC;
     border: solid 1px #CCC;
     background-color: #FFF;
 }
+
+
 .login {
     padding-top: 20px;
     font-size: 15px;
@@ -185,41 +174,28 @@ h2 {
     padding-top: 20px;
 }
 /* start projects */
+.col-sm-6 .card .card-block p{
+    margin-left: 17px;
+}
+.btn-primary{    
+    margin-left: 22px;
+    margin-bottom: 22px;
 
-.portfolio {
-    padding-top: 50px;
-    padding-bottom: 70px;
-    text-align: center;
+}
+.card-title {
+    margin-left: 22px;
+    margin-top: 15px;
+}
+.projects {
+    margin-top: 20px;
+}
+.card {
+    border-radius: 1.25rem;
 }
 
-.portfolio h2 {
-    color: #777;
+.col-sm-6{
+    margin-bottom: 20px;
 }
-
-.portfolio p {
-    margin-bottom: 30px;
-}
-
-.portfolio .our-work {
-    overflow: hidden;
-}
-
-.portfolio .our-work>div {
-    float: left;
-    width: 33.3333%;
-    margin-bottom: 10px;
-}
-
-.portfolio .our-work>div img {
-    width: 92%;
-    margin: 10px;
-    padding: 3px;
-    background-color: #FFF;
-    border: 1px solid #CCC;
-    box-shadow: 10px 10px 12px #CCC;
-}
-
-
 /* End projects */
 /* start section our team */
 
@@ -234,11 +210,13 @@ section {
 h1{
     text-align: center;
 }
+.team {
+    margin-top: 20px;
+}
 
 
-
-.team .our-work {
-    overflow: hidden;
+.team h2 {
+    text-align: center;
 }
 
 .team .our-work>div {
@@ -256,14 +234,44 @@ h1{
     border: 1px solid #CCC;
     box-shadow: 10px 10px 12px #CCC;
 }
-.row{
-    width:900;
-    margin-top:100px;
-}
 
-.btn-primary {
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
 
 /* End section our team */
+body{
+    background-color: gainsboro;
+}
+.create-account{
+    margin-top: 20px;
+}
+/*start project-info*/
+textarea{
+    height: 100px;
+}
+.img {
+    background-image: url('../images/slider.jpg');
+    background-size: cover;
+    background-color: #EEE;
+    height: 600px;
+    padding-bottom: 50px;
+    overflow-x: hidden
+    padding-top:0px;
+}
+.form-group{
+    font-weight: bold;
+    font-size: 18px;
+}
+/*end project-info*/
+.imgprojects{
+    background-image: url('../images/slider.jpg');
+    background-size: cover;
+    background-color: #EEE;
+    height: 600px;
+    padding-bottom: 50px;
+    overflow-x: hidden
+    padding-top:0px;
+}
+
+.project-dl{
+    padding-top: 100px;
+    padding-left: 530px;
+}

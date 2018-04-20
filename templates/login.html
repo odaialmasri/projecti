@@ -1,24 +1,35 @@
 {% extends "layout.html" %}
-
-
-
 {%block body%}
 <div class="back">
 	<div class="odai">
 		<div class="login">
-			<h1>Freelancer</h1>
+		<div class="name-of-project">
+			<h1>Projecty</h1>
 			<form method="post" action="/login">
 				<br>
 				<input name="email" type="email" class="form-control" placeholder="Email"><br>
 				<br>
 				<input name="password" type="password" class="form-control" placeholder="Password"><br>
+				{% if check == None %}
+	                <div class="span">
+	                    <div class="form-control-feedback">
+	                            <span class="text-danger align-middle">
+	                                 wrong email or password
+	                            </span>
+	                            <br>
+	                            <br>
+	                    </div>
+	                </div>
+            	{% endif %}
+
+				<a href="/signup/{{type}}">Create a new account</a><br>
+				
 				<input type="submit" class="btn btn-primary" value="Log in" ><br></a>
-				<a href="/signup">Create a new account</a><br>
+				</div>
 			</form>
 		</div>
 	</div>
 </div>
+
 {% endblock %}
 
-</body>
-</html>
