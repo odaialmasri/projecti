@@ -8,6 +8,7 @@ db=dataset.connect("sqlite:///projecti")
 account=db["account"]
 project=db["project"]
 
+
 Login = False
 
 @app.route("/")
@@ -16,10 +17,8 @@ def home():
 
 @app.route("/signup/<path:type>",methods=["post","get"])
 def signup(type):
-	print(type , request.method , "request.method")
 	global Login
 	if(request.method=="POST"):
-		#print type , "signup type"
 		name=request.form["name"]
 		email=request.form["email"]
 		password=request.form["password"]
@@ -30,7 +29,8 @@ def signup(type):
 			account.insert(dict(name=name,email=email,password=password,type=type))
 			return redirect('/login')
 		else:
-			return redirect('/signup/'+type)
+			#return redirect('/signup/'+type)
+			return render_template("signup.html",type=type,emailCheck=echeck2,pass1=password,pass2=pconfirm)
 	else:
 		return render_template("signup.html", login=Login, type=type)
 
@@ -39,20 +39,13 @@ def signup(type):
 @app.route("/login",methods=["post","get"])
 def login():
 	global Login
-	print request.method
-
+	
 	if(request.method=="POST"):
 		email=request.form["email"]
 		password=request.form["password"]
 		e=account.find_one(email=email,password=password)
-		check=len(list(e))
-		#for x in e:
-			#print x
-		
-		#print check , list(e) ,e['type'] 
-		if check != 0:
+		if e!= None:
 			c=e['type']
-			print c
 			if c == "sponsor":
 				Login= True
 				return redirect ('/view')
@@ -61,18 +54,16 @@ def login():
 				return redirect ('/enterproject') 
 		else:
 			Login= False
-			return render_template("login.html",login=Login)
+			return render_template("login.html",login=Login,type=type,check=e)
 	else:
 		Login= False
-		return render_template("login.html",login=Login)
+		return render_template("login.html",login=Login,type=type)
 
 
 @app.route("/out",methods=["post","get"])
 def signout():
 	global Login
-	global Ema
 	Login=False
-	Ema=""
 	return redirect('/')
 
 
@@ -85,17 +76,12 @@ def info():
 		email=request.form["email"]
 		describtion=request.form["describtion"]
 		projectPhoto=request.form["projectPhoto"]
-
-		print (dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
 		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion,projectPhoto=projectPhoto))
 		return redirect("/view")
 	else:
 		return render_template("enterproject.html")
 
 
-
-
-	
 
 @app.route("/view")
 def projects():
@@ -107,9 +93,6 @@ def projects():
 def moreinfo(id):
 	mi=project.find_one(ideaName=id)
 	return render_template("projects-details.html",project=mi)
-
-
-	
 
 
 

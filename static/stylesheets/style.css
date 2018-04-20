@@ -64,16 +64,20 @@
 }
 
 .header .navbar ul li a {
-    color: #FFF;
+    font-size:20px; 
+    color: #39B174;
     text-decoration: none;
 }
 
+/*
 .header .navbar ul li.active a,
 .header .navbar ul li a:hover {
     color: #39B174;
     cursor: pointer;
-
 }
+*/
+
+
 .my-skills {
     background-image: url('../images/slider1.jpg');
     background-size: cover;
