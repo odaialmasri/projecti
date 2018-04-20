@@ -17,9 +17,18 @@
     <div class="header">
         <div class="navbar">
             <div class="container">
+                <img src="../static/images/logo2.png" width="150px" height="150px">
+                <!--
                 <h2 class="fl-left">Projecty</h2>
+                -->
                 <ul>
-                    <li><a href="/login">Login</a></li>
+                    {% if login == False %}
+                        <li><a href="/login">Login</a></li>
+                    {% endif %}
+                    
+                    {% if login == True %}
+                        <li><a href="/logout">Logout</a></li>
+                    {% endif %}
                 </ul>
 
             </div>

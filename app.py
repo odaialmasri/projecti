@@ -13,7 +13,8 @@ Login = False
 
 @app.route("/")
 def home():
-	return render_template("index.html")
+	global Login
+	return render_template("index.html",login=Login)
 
 @app.route("/signup/<path:type>",methods=["post","get"])
 def signup(type):
@@ -27,7 +28,12 @@ def signup(type):
 		echeck2=len(list(echeck))
 		if password==pconfirm and echeck2==0:
 			account.insert(dict(name=name,email=email,password=password,type=type))
-			return redirect('/login')
+			if type == "sponsor":
+				Login= True
+				return redirect ('/view')
+			elif type == "client":
+				Login= True
+				return redirect ('/enterproject')
 		else:
 			#return redirect('/signup/'+type)
 			return render_template("signup.html",type=type,emailCheck=echeck2,pass1=password,pass2=pconfirm)
@@ -60,16 +66,17 @@ def login():
 		return render_template("login.html",login=Login,type=type)
 
 
-@app.route("/out",methods=["post","get"])
+@app.route("/logout",methods=["post","get"])
 def signout():
 	global Login
 	Login=False
-	return redirect('/')
+	return render_template('index.html',login=Login)
 
 
 
 @app.route("/enterproject",methods=["post","get"])
 def info():
+	global Login
 	if(request.method == "POST"):
 		name=request.form["name"]
 		ideaName=request.form["ideaName"]
@@ -77,22 +84,24 @@ def info():
 		describtion=request.form["describtion"]
 		projectPhoto=request.form["projectPhoto"]
 		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion,projectPhoto=projectPhoto))
-		return redirect("/view")
+		return render_template("projects.html",login=Login,type=type,project=db["project"])
 	else:
-		return render_template("enterproject.html")
+		return render_template("enterproject.html",login=Login,type=type)
 
 
 
 @app.route("/view")
 def projects():
-	return render_template ("projects.html",project=db["project"])
+	global Login
+	return render_template ("projects.html",project=db["project"],login=Login)
 
 
 
 @app.route("/moreinfo/<id>")
 def moreinfo(id):
+	global Login
 	mi=project.find_one(ideaName=id)
-	return render_template("projects-details.html",project=mi)
+	return render_template("projects-details.html",project=mi,login=Login)
 
 
 
