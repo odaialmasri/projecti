@@ -238,7 +238,6 @@ h1{
 }
 
 
-.team{background-color: #96a875;}
 
 .our-work{margin-top:50px;}
 
@@ -280,4 +279,11 @@ textarea{
 .project-dl{
     padding-top: 100px;
     padding-left: 530px;
+}
+.colorB {
+    color: #39B174;
+    text-align: center;
+}
+.skills .fl-left{
+    margin-top: 300px;
 }
