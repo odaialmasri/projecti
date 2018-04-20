@@ -8,6 +8,7 @@ db=dataset.connect("sqlite:///projecti")
 account=db["account"]
 project=db["project"]
 
+
 Login = False
 
 @app.route("/")
@@ -43,11 +44,8 @@ def login():
 		email=request.form["email"]
 		password=request.form["password"]
 		e=account.find_one(email=email,password=password)
-		check=len(list(e))
-		print check
-		if check != 0:
+		if e!= None:
 			c=e['type']
-			#print c
 			if c == "sponsor":
 				Login= True
 				return redirect ('/view')
@@ -56,7 +54,7 @@ def login():
 				return redirect ('/enterproject') 
 		else:
 			Login= False
-			return render_template("login.html",login=Login)
+			return render_template("login.html",login=Login,type=type,check=e)
 	else:
 		Login= False
 		return render_template("login.html",login=Login,type=type)
@@ -78,8 +76,6 @@ def info():
 		email=request.form["email"]
 		describtion=request.form["describtion"]
 		projectPhoto=request.form["projectPhoto"]
-
-		print (dict(name=name,ideaName=ideaName,email=email,describtion=describtion))
 		project.insert(dict(name=name,ideaName=ideaName,email=email,describtion=describtion,projectPhoto=projectPhoto))
 		return redirect("/view")
 	else:
